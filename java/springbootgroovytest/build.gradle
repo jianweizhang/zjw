@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC1")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot"  }
+}
+
+ext {
+    springBootVersion = "1.0.0.RC1"
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.1'
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+}
